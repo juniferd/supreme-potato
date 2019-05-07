@@ -1,6 +1,13 @@
 #include "kv.h"
 
-string getKey(
+string kv::listKeys(map<string,string> &kv) {
+  string msg;
+  for (map<string,string>::iterator i = kv.begin(); i != kv.end(); ++i) {
+    msg += i->first + " ";
+  }
+  return msg;
+}
+string kv::getKey(
     map<string,string> &kv,
     string key
     ) {
@@ -16,7 +23,7 @@ string getKey(
   return msg;
 }
 
-string setKey(
+string kv::setKey(
     map<string,string> &kv,
     string key,
     string value
@@ -35,7 +42,7 @@ string setKey(
   return msg;
 }
 
-string deleteKey(
+string kv::deleteKey(
     map<string,string> &kv,
     string key
     ) {
