@@ -1,16 +1,13 @@
 #include "kv.h"
 
-string kv::listKeys(map<string,string> &kv) {
+string KeyValue::list_keys() {
   string msg;
   for (map<string,string>::iterator i = kv.begin(); i != kv.end(); ++i) {
     msg += i->first + " ";
   }
   return msg;
 }
-string kv::getKey(
-    map<string,string> &kv,
-    string key
-    ) {
+string KeyValue::get_key(string key) {
   string msg;
   map<string,string>::iterator it;
 
@@ -23,11 +20,7 @@ string kv::getKey(
   return msg;
 }
 
-string kv::setKey(
-    map<string,string> &kv,
-    string key,
-    string value
-    ) {
+string KeyValue::set_key(string key,string value) {
   string msg;
   int count = kv.count(key);
 
@@ -42,10 +35,7 @@ string kv::setKey(
   return msg;
 }
 
-string kv::deleteKey(
-    map<string,string> &kv,
-    string key
-    ) {
+string KeyValue::delete_key(string key) {
   string msg;
   int count = kv.erase(key);
   if (count) {

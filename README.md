@@ -18,11 +18,11 @@ design protocol
 * [x] get key
 * [x] set key
 * [x] delete key
-* [ ] list keys
-* [ ] get key in namespace
-* [ ] set key in namespace
-* [ ] delete key in namespace
-* [ ] list keys in namespace
+* [x] list keys
+* [x] get key in namespace
+* [x] set key in namespace
+* [x] delete key in namespace
+* [x] list keys in namespace
 * [ ] set namespace
 * [ ] clear namespace
 * [ ] delete namespace

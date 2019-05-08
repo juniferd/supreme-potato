@@ -3,9 +3,12 @@
 #include <string>
 #include <map>
 using namespace std;
-namespace kv {
-  string getKey(map<string,string> &kv, string key);
-  string setKey(map<string,string> &kv,string key,string value);
-  string deleteKey(map<string,string> &kv,string key);
-  string listKeys(map<string,string> &kv);
-}
+class KeyValue {
+private:
+  map<string,string> kv;
+public:
+  string get_key(string key);
+  string set_key(string key,string value);
+  string delete_key(string key);
+  string list_keys();
+};
