@@ -12,7 +12,7 @@ vector<string> splitString (string sentence, string delimiter) {
       words.push_back(sentence.substr(start, i - start));
       start = i+1;
     } else if (i == senLen - 1) {
-      words.push_back(sentence.substr(start, senLen - start));
+      words.push_back(sentence.substr(start, std::string::npos));
     }
   }
 

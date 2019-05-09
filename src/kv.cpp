@@ -9,12 +9,8 @@ string KeyValue::list_keys() {
 }
 string KeyValue::get_key(string key) {
   string msg;
-  map<string,string>::iterator it;
 
-  printf("GETTING %s IN %x\n", key.c_str(), this);
-
-  it = kv.find(key);
-  if (it != kv.end()) {
+  if (kv.count(key)) {
     msg = key + ": " + kv[key];
   } else {
     msg = key + " not found";
@@ -24,18 +20,14 @@ string KeyValue::get_key(string key) {
 
 string KeyValue::set_key(string key,string value) {
   string msg;
-  int count = kv.count(key);
-
-  printf("SETTING %s IN %x\n", key.c_str(), this);
-
-  kv[key] = value;
 
   // check if key already exists
-  if (count) {
+  if (kv.count(key)) {
     msg = key + " already existed and has been overwritten with " + value;
   } else {
     msg = "Key-value updated";
   }
+  kv[key] = value;
   return msg;
 }
 

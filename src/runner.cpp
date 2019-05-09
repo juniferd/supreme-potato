@@ -31,20 +31,18 @@ string MainRunner::handle_line(string line){
   keyvalue = splitString(line);
 
   for (auto s : keyvalue)
-    cout << "'" << s << "'" << " ";
+    cout << "'" << s << "' (" << s.size() << ") ";
   cout << endl;
   action = actionMap[keyvalue[0]];
   switch(action) {
     case GET:
       nms = get_namespace_and_key(keyvalue[1]);
       check_kv_in_namespace(namespaces, nms[0]);
-      cout << "NAMESPACE" << nms[0] << endl;
       msg = namespaces[nms[0]].get_key(nms[1]);
       break;
     case SET:
       nms = get_namespace_and_key(keyvalue[1]);
       check_kv_in_namespace(namespaces, nms[0]);
-      cout << "NAMESPACE" << nms[0] << endl;
       msg = namespaces[nms[0]].set_key(nms[1], keyvalue[2]);
       break;
     case DELETE:

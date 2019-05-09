@@ -56,21 +56,22 @@ class KVServer {
 
       if (remaining > 0) {
         string s = string(cpy);
-        if (cpy != "") {
+        if (s != "") {
           buffers[sd].push_back(string(cpy));
         }
       }
     }
 
+    // what a tricky func
     void strip_trailing_whitespace(string &line) {
       int i = line.size();
       while (--i >= 0) {
-        if (line[i] == '\r' || line[i] == '\n' || line[i] == ' ' || line[i] == '\t') {
-          line[i] = '\0';
-        } else {
-          return;
+        if (!(line[i] == '\r' || line[i] == '\n' || line[i] == ' ' || line[i] == '\t')) {
+          break;
         }
       }
+
+      line = line.substr(0, i+1);
     }
 
     void handle_line(string line) {
