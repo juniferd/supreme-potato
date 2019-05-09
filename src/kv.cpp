@@ -11,6 +11,8 @@ string KeyValue::get_key(string key) {
   string msg;
   map<string,string>::iterator it;
 
+  printf("GETTING %s IN %x\n", key.c_str(), this);
+
   it = kv.find(key);
   if (it != kv.end()) {
     msg = key + ": " + kv[key];
@@ -23,6 +25,8 @@ string KeyValue::get_key(string key) {
 string KeyValue::set_key(string key,string value) {
   string msg;
   int count = kv.count(key);
+
+  printf("SETTING %s IN %x\n", key.c_str(), this);
 
   kv[key] = value;
 

@@ -11,6 +11,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "runner.h"
 
 #define PORT 8888
 
@@ -29,6 +30,7 @@ class KVServer {
     char buffer[MAXLEN];
     map<int, vector<string>> buffers;
     int addrlen = sizeof(address);
+    MainRunner runner;
 
     void handle_read(int sd, char *buffer, int valread) {
       //set the string terminating NULL byte on the end of the data read
@@ -74,6 +76,8 @@ class KVServer {
     void handle_line(string line) {
       strip_trailing_whitespace(line);
       printf("HANDLING LINE: '%s'\n", line.c_str());
+      printf("%s\n", runner.handle_line(line).c_str());
+      printf("--\n");
     }
 
     void handle_buffers(vector<string> &buf) {
@@ -126,7 +130,7 @@ class KVServer {
       address.sin_port = htons(PORT);
 
       //bind the socket to localhost port 8888
-      if (bind(master_socket, (struct sockaddr *)&address, sizeof(address)) < 0) {
+      if (::bind(master_socket, (struct sockaddr *)&address, sizeof(address)) < 0) {
           perror("bind failed");
           exit(EXIT_FAILURE);
       }

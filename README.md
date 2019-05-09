@@ -1,10 +1,18 @@
-key-value store
+# key-value store
 
 * key-vaue store that you can telnet into
 * supports text-based network protocol for getting and setting keys
 * plaintext protocol
 
-features
+## run it
+
+in `/src` run `make`
+
+`./server` to run server
+
+`telnet localhost 8888`
+
+## features
 
 * [ ] LRU
 * [ ] namespaces
