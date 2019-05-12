@@ -11,7 +11,7 @@ string KeyValue::get_key(string key) {
   string msg;
 
   if (kv.count(key)) {
-    msg = key + ": " + kv[key];
+    msg = "Get " + key + ": " + kv[key];
   } else {
     msg = key + " not found";
   }
@@ -25,7 +25,7 @@ string KeyValue::set_key(string key,string value) {
   if (kv.count(key)) {
     msg = key + " already existed and has been overwritten with " + value;
   } else {
-    msg = "Key-value updated";
+    msg = key + " set to " + value;
   }
   kv[key] = value;
   return msg;

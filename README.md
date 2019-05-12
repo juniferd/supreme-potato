@@ -15,7 +15,7 @@ in `/src` run `make`
 ## features
 
 * [ ] LRU
-* [ ] namespaces
+* [x] namespaces
 * [ ] key being data structure (list, set)
 * [ ] persistence to disk
 * [ ] client library in python that talks to it over the network
@@ -31,7 +31,7 @@ design protocol
 * [x] set key in namespace
 * [x] delete key in namespace
 * [x] list keys in namespace
-* [ ] set namespace
+* [x] set namespace
 * [ ] clear namespace
-* [ ] delete namespace
+* [x] delete namespace
 * [ ] list namespaces
