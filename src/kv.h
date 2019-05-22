@@ -1,3 +1,5 @@
+#ifndef KV_H
+#define KV_H
 #include <iostream>
 #include <vector>
 #include <string>
@@ -12,3 +14,4 @@ public:
   string delete_key(string key);
   string list_keys();
 };
+#endif

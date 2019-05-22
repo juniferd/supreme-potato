@@ -1,3 +1,5 @@
+#ifndef RUNNER_H
+#define RUNNER_H
 #include <string>
 #include <map>
 #include <tuple>
@@ -13,3 +15,4 @@ private:
 public:
   string handle_line(string line);
 };
+#endif

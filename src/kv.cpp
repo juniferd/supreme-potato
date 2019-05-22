@@ -1,11 +1,13 @@
 #include "kv.h"
+#include "response.h"
 
 string KeyValue::list_keys() {
   string msg;
   for (map<string,string>::iterator i = kv.begin(); i != kv.end(); ++i) {
     msg += i->first + " ";
   }
-  return msg;
+  Response rsp = Response(SUCCESS,msg);
+  return rsp.get_response();
 }
 string KeyValue::get_key(string key) {
   string msg;
@@ -15,7 +17,8 @@ string KeyValue::get_key(string key) {
   } else {
     msg = key + " not found";
   }
-  return msg;
+  Response rsp = Response(SUCCESS,msg);
+  return rsp.get_response();
 }
 
 string KeyValue::set_key(string key,string value) {
@@ -28,7 +31,8 @@ string KeyValue::set_key(string key,string value) {
     msg = key + " set to " + value;
   }
   kv[key] = value;
-  return msg;
+  Response rsp = Response(SUCCESS,msg);
+  return rsp.get_response();
 }
 
 string KeyValue::delete_key(string key) {
@@ -39,5 +43,6 @@ string KeyValue::delete_key(string key) {
   } else {
     msg = "Unable to delete key: " + key;
   }
-  return msg;
+  Response rsp = Response(SUCCESS,msg);
+  return rsp.get_response();
 }

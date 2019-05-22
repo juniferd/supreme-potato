@@ -1,6 +1,7 @@
+#include "enums.h"
 #include "runner.h"
 #include "stringutils.h"
-#include "enums.h"
+
 string MainRunner::set_namespace(map<string,KeyValue> &namespaces, string nm) {
   string msg;
   if (namespaces.count(nm) == 0) {
